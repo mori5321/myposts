@@ -1,0 +1,35 @@
+.markdown-field h1, h2, h3, h4, h5, h6 {
+  @apply font-bold leading-4;
+}
+
+
+.markdown-field h1 {
+  @apply pb-2 text-3xl;
+}
+
+.markdown-field h2 {
+  @apply pb-2 text-2xl;
+}
+
+.markdown-field h3 {
+  @apply pb-2 text-xl;
+}
+
+.markdown-field h4 {
+  /* TODO: なにか素敵なスタイル  */
+  @apply pb-1 text-lg;
+}
+
+.markdown-field h5 {
+  /* TODO: なにか素敵なスタイル  */
+  @apply pb-1 text-lg;
+}
+
+.markdown-field h6 {
+  /* TODO: なにか素敵なスタイル  */
+  @apply pb-1 text-lg;
+}
+
+.markdown-field p {
+  @apply pb-2 text-base;
+}

@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { AppProps } from "next/app"
-import "assets/stylesheets/reset.css";
 import { basicColorSet } from '@/consts/colors';
+import "assets/stylesheets/reset.css";
 import "tailwindcss/tailwind.css";
 import "assets/stylesheets/global.css";
+import "assets/stylesheets/markdown.css";
 import Head from 'next/Head';
 import { Header } from '@/components/modules/Header';
 
@@ -17,13 +18,13 @@ const MossApp = ({ Component, pageProps }: AppProps) => {
           <Header />
           <Component {...pageProps} />
         </div>
-        <style jsx global>{`
-          body {
-            font-family: 'Source Sans Pro', sans-serif;
-            color: ${basicColorSet.textPrimary};
-            background-color: ${basicColorSet.backgroundPrimary};
-          }
-        `}</style>
+        // <style jsx global>{`
+        //   body {
+        //     font-family: 'Source Sans Pro', sans-serif;
+        //     color: ${basicColorSet.textPrimary};
+        //     background-color: ${basicColorSet.backgroundPrimary};
+        //   }
+        // `}</style>
     </>
   )
 }
