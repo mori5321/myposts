@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { AppProps } from "next/app"
-import { basicColorSet } from '@/consts/colors';
 import "assets/stylesheets/reset.css";
 import "tailwindcss/tailwind.css";
 import "assets/stylesheets/global.css";
@@ -14,17 +13,11 @@ const MossApp = ({ Component, pageProps }: AppProps) => {
         <Head>
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         </Head>
-        <div className="flex">
+        <div className="max-w-4xl mx-auto continer">
           <Header />
+          <div className="pt-14" />
           <Component {...pageProps} />
         </div>
-        // <style jsx global>{`
-        //   body {
-        //     font-family: 'Source Sans Pro', sans-serif;
-        //     color: ${basicColorSet.textPrimary};
-        //     background-color: ${basicColorSet.backgroundPrimary};
-        //   }
-        // `}</style>
     </>
   )
 }

@@ -47,6 +47,7 @@ export const getStaticProps = async({params}: Params) => {
 // TODO: StaticPathsとStaticPropsの間をTypeSafeにしたい
 export const getStaticPaths = async() => {
   const posts = getAllPosts()
+  console.log("Slug:Posts", posts);
   return {
     paths: posts.map(post => {
       return {
@@ -55,7 +56,7 @@ export const getStaticPaths = async() => {
         }
       }
     }),
-    fallback: true
+    fallback: false
   }
 }
 
