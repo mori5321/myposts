@@ -40,7 +40,7 @@ const PostDetailPage: NextPage<Props> = ({ post, markdownHtml }) => {
         </div>
       </div>
       <div
-        className="py-2 markdown-field"
+        className="py-8 markdown-field"
         dangerouslySetInnerHTML={{ __html: markdownHtml }}>
       </div>
     </div>
