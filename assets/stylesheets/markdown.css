@@ -1,5 +1,5 @@
 .markdown-field h1, h2, h3, h4, h5, h6 {
-  @apply font-bold leading-4;
+  @apply font-bold;
 }
 
 /* h1はmetaタグで生成するTitle用 */

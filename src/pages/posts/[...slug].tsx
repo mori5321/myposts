@@ -21,9 +21,9 @@ const PostDetailPage: NextPage<Props> = ({ post, markdownHtml }) => {
     return <div>Loading...</div>
 
   return (
-    <div className="p-4">
-      <div className="py-2">
-        <h1 className="py-2 text-3xl font-bold leading-4">
+    <div className="p-4 pb-24">
+      <div className="">
+        <h1 className="text-3xl font-bold">
           {post.metaData.title}
         </h1>
         <p className="py-1 text-gray-400">{post.metaData.date}</p>
