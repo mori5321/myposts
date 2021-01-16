@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { GetStaticProps,NextPage } from 'next';
 import { BlogSummary } from '@/components/modules/Blog';
-import { getAllPosts, getPostBySlug } from '@/utils/posts';
+import { getAllPostPaths, getPostBySlug, Post } from '@/utils/posts';
 
 
 type Props = {
-  posts: string[],
+  posts: Post[],
   paths: string[][],
 }
 const TopPage: NextPage<Props> = (props) => {
@@ -19,12 +19,13 @@ const TopPage: NextPage<Props> = (props) => {
         {
           props.posts.map(post => {
             return (
-              <div className="pb-6">
-                <BlogSummary
-                  title={post.substr(0, 10)}
-                  date="2020-12-01"
-                  tags={["React.js", "TypeScript", "Tailwind"]}
-                />
+              <div className="pb-6" key={post.metaData.title}>
+                  <BlogSummary
+                    title={post.metaData.title}
+                    date={post.metaData.date}
+                    tags={post.metaData.tags}
+                    path={post.path}
+                  />
               </div>
             )
           })
@@ -36,10 +37,9 @@ const TopPage: NextPage<Props> = (props) => {
 
 
 export const getStaticProps: GetStaticProps<Props> = async() => {
-  const postPaths = getAllPosts()
+  const postPaths = getAllPostPaths()
   const posts = postPaths.map((path) => getPostBySlug(path))
 
-  console.log(posts);
   return {
     props: {
       paths: postPaths,

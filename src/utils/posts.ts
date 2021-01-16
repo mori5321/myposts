@@ -3,19 +3,41 @@ import glob from "glob";
 import { join } from "path";
 import remark from "remark";
 import html from "remark-html";
+import matter from 'gray-matter';
 
 const postDirPrefix = "src/_posts/";
 const postsDirectory = join(process.cwd(), postDirPrefix)
 
+export type Post = {
+  metaData: MetaData,
+  markdown: string,
+  path: string
+}
+
+type MetaData = {
+  title: string,
+  date: string,
+  tags: string[],
+}
 
 // TODO: Error Handling
-const getPostBySlug = (slug: string[]): string => {
+export const getPostBySlug = (slug: string[]): Post => {
   const path = slug.join("/");
   const fullPath = join(postsDirectory, `${path}.md`)
-  const markdown = fs.readFileSync(fullPath, 'utf8');
-  console.log("Markdown", markdown);
-  // console.log("Markdown", markdown)
-  return markdown
+  const fileContent = fs.readFileSync(fullPath, 'utf8');
+  const { data, content: markdown } = matter(fileContent);
+  
+  const metaData: MetaData ={
+    title: data.title ?? "No Title",
+    date: data.date ?? "No Date",
+    tags: data.tags ?? []
+  }
+
+  return {
+    metaData: metaData,
+    markdown: markdown,
+    path: "posts/" + path
+  }
 }
 
 // TODO: Error Handling
@@ -24,18 +46,16 @@ const getPostBySlug = (slug: string[]): string => {
 //    ["posts", "20200101-hello"],
 //    ["posts", "20200202-goodbye"]
 // ]
-const getAllPosts = (): string[][] => {
+export const getAllPostPaths = (): string[][] => {
   const posts = glob.sync(`${postDirPrefix}/**/*.md`)
-  console.log("getAllPosts:Posts", posts);
   return posts
           .map(file => file.split(postDirPrefix).pop())
           .map(slug => (slug as string).replace(/\.md$/, '').split('/'))
               
 }
 
-const markdownToHtml = async (markdown: string) => {
+export const markdownToHtml = async (markdown: string) => {
   const result = await remark().use(html).process(markdown);
   return result.toString()
 }
 
-export { getPostBySlug, getAllPosts, markdownToHtml }

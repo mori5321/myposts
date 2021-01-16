@@ -52,3 +52,7 @@
 .markdown-field img {
   @apply py-4;
 }
+
+.markdown-field pre, code {
+  @apply text-sm !important;
+}

@@ -1,4 +1,11 @@
-# RustでCSS Modulesをつくった
+---
+title: "RustでCSSModulesつくった"
+date: "2020/01/01"
+tags: 
+  - React.js
+  - TypeScript
+---
+
 みなさん自分のブログをなにで作成していますか? はてなブログ? note?  
 エンジニアであれば軽量なMarkdownで書きたいですよね?  
 そんなみなさんにとっておきの方法をご紹介いたします。
