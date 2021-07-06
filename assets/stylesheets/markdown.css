@@ -1,14 +1,19 @@
-.markdown-field h1, h2, h3, h4, h5, h6 {
+.markdown-field h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   @apply font-bold;
 }
 
 /* h1はmetaタグで生成するTitle用 */
 .markdown-field h1 {
-  @apply py-2 text-3xl;
+  @apply py-2 text-3xl pt-4;
 }
 
 .markdown-field h2 {
-  @apply py-2 text-2xl;
+  @apply py-2 text-2xl pt-4;
 }
 
 .markdown-field h3 {
@@ -29,8 +34,9 @@
   @apply py-1 text-lg;
 }
 
-.markdown-field p, ul {
-  @apply py-1
+.markdown-field p,
+ul {
+  @apply py-1;
 }
 
 .markdown-field p {
@@ -53,6 +59,7 @@
   @apply py-4;
 }
 
-.markdown-field pre, code {
+.markdown-field pre,
+code {
   @apply text-sm !important;
 }
