@@ -6,6 +6,8 @@ tags:
   - PdM
 ---
 
+[![Image from Gyazo](https://i.gyazo.com/a1c8edd4734f13a16c1c4db03bef2434.png)](https://gyazo.com/a1c8edd4734f13a16c1c4db03bef2434)
+
 # メモ
 ## ビルドトラップとは
 ビルドトラップとは、組織が **アウトカム** ではなく **アウトプット** で成功を計測しようとし、行き詰まってしまっている状態のこと。
