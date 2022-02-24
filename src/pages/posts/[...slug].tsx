@@ -8,6 +8,7 @@ import {
   Post,
 } from "@/utils/posts";
 import Prism from "prismjs";
+import { mixpanelClient } from "../../adapters/mixpanel";
 
 type Props = {
   post: Post;
@@ -19,6 +20,10 @@ const PostDetailPage: NextPage<Props> = ({ post, markdownHtml }) => {
 
   React.useEffect(() => {
     Prism.highlightAll();
+  }, []);
+
+  React.useEffect(() => {
+    mixpanelClient.visit(router.pathname);
   }, []);
 
   if (router.isFallback) return <div>Loading...</div>;
